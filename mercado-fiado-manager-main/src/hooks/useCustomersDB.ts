@@ -7,6 +7,8 @@ export interface Customer {
   id: string;
   name: string;
   phone: string;
+  address?: string;
+  birthDate?: Date;
   creditLimit: number;
   currentDebt: number;
   createdAt: Date;
@@ -54,6 +56,8 @@ export function useCustomersDB(userId: string | undefined) {
       id: c.id,
       name: c.name,
       phone: c.phone,
+      address: c.address || undefined,
+      birthDate: c.birth_date ? new Date(c.birth_date + 'T00:00:00') : undefined,
       creditLimit: Number(c.credit_limit),
       currentDebt: Number(c.current_debt),
       createdAt: new Date(c.created_at),
@@ -108,6 +112,8 @@ export function useCustomersDB(userId: string | undefined) {
         user_id: userId,
         name: customer.name,
         phone: customer.phone,
+        address: customer.address || null,
+        birth_date: customer.birthDate ? customer.birthDate.toISOString().split('T')[0] : null,
         credit_limit: customer.creditLimit,
         current_debt: 0,
       })
@@ -127,6 +133,8 @@ export function useCustomersDB(userId: string | undefined) {
       id: data.id,
       name: data.name,
       phone: data.phone,
+      address: data.address || undefined,
+      birthDate: data.birth_date ? new Date(data.birth_date + 'T00:00:00') : undefined,
       creditLimit: Number(data.credit_limit),
       currentDebt: Number(data.current_debt),
       createdAt: new Date(data.created_at),
