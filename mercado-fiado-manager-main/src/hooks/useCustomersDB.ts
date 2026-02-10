@@ -43,7 +43,8 @@ export function useCustomersDB(userId: string | undefined) {
     const { data, error } = await supabase
       .from('customers')
       .select('*')
-      .order('name');
+      .order('name')
+      .returns<any[]>();
 
     if (error) {
       if (import.meta.env.DEV) {
@@ -118,7 +119,8 @@ export function useCustomersDB(userId: string | undefined) {
         current_debt: 0,
       })
       .select()
-      .single();
+      .single()
+      .returns<any>();
 
     if (error) {
       toast({
