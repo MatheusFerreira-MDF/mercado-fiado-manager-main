@@ -50,9 +50,16 @@ export function CustomerDetails({ customer, sales, open, onClose, onPayDebt }: C
         </DialogHeader>
 
         <div className="space-y-6">
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <Phone className="h-4 w-4" />
-            {customer.phone}
+        <div className="space-y-1">
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Phone className="h-4 w-4" />
+              {customer.phone}
+            </div>
+            {customer.address && (
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <span className="text-sm">📍 {customer.address}</span>
+              </div>
+            )}
           </div>
 
           <div className="bg-muted rounded-lg p-4 space-y-3">
