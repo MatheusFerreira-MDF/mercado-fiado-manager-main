@@ -117,7 +117,7 @@ const Auth = () => {
           {/* LOGO AQUI */}
           <div className="mx-auto w-fit">
             <img
-              src="/favicon1.svg"
+              src="/mercado.svg"
               alt="Mercado Gonçalves"
               className="h-20 w-auto"
             />
