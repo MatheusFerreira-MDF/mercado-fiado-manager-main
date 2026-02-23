@@ -9,7 +9,7 @@ import { PrintDialog } from '@/components/PrintDialog';
 import { AlertsPanel } from '@/components/AlertsPanel';
 import { BirthdayReminder } from '@/components/BirthdayReminder';
 import { StatsSection } from '@/components/StatsSection';
-import { Store, Users, Search, LogOut } from 'lucide-react';
+import { Users, Search, LogOut } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
@@ -61,13 +61,22 @@ const Index = () => {
       <header className="bg-primary text-primary-foreground shadow-lg">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
+            
+            {/* LOGO + TITULO */}
             <div className="flex items-center gap-3">
-              <Store className="h-8 w-8" />
+              <img
+                src="/mercado.svg"
+                alt="Mercado Gonçalves"
+                className="h-10 w-10 object-contain"
+              />
               <div>
                 <h1 className="text-2xl font-bold">MERCADO GONÇALVES</h1>
-                <p className="text-primary-foreground/80 text-sm">Sistema de Controle de Fiado</p>
+                <p className="text-primary-foreground/80 text-sm">
+                  Sistema de Controle de Fiado
+                </p>
               </div>
             </div>
+
             <div className="flex gap-3 items-center">
               <AddSaleDialog 
                 customers={customers} 
@@ -84,6 +93,7 @@ const Index = () => {
                 <LogOut className="h-4 w-4" />
               </Button>
             </div>
+
           </div>
         </div>
       </header>
