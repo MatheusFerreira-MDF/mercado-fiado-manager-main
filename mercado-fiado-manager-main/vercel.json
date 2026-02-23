@@ -1,7 +1,7 @@
 {
   "routes": [
     {
-      "src": "^/(assets/.*|favicon.ico|robots.txt|manifest.json)",
+      "src": "^/(assets/.*|.*\\.(svg|png|jpg|jpeg|gif|webp|ico)|robots.txt|manifest.json)$",
       "dest": "/$1"
     },
     {
