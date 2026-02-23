@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Store, Lock, Mail } from 'lucide-react';
+import { Lock, Mail } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 import { z } from 'zod';
 
@@ -46,9 +46,10 @@ const Auth = () => {
     if (error) {
       toast({
         title: 'Erro ao entrar',
-        description: error.message === 'Invalid login credentials' 
-          ? 'Email ou senha incorretos' 
-          : error.message,
+        description:
+          error.message === 'Invalid login credentials'
+            ? 'Email ou senha incorretos'
+            : error.message,
         variant: 'destructive',
       });
     } else {
@@ -92,9 +93,10 @@ const Auth = () => {
     if (error) {
       toast({
         title: 'Erro ao cadastrar',
-        description: error.message === 'User already registered'
-          ? 'Este email já está cadastrado'
-          : error.message,
+        description:
+          error.message === 'User already registered'
+            ? 'Este email já está cadastrado'
+            : error.message,
         variant: 'destructive',
       });
     } else {
@@ -111,16 +113,26 @@ const Auth = () => {
     <div className="min-h-screen bg-gradient-to-br from-primary/10 via-background to-primary/5 flex items-center justify-center p-4">
       <Card className="w-full max-w-md shadow-2xl border-2">
         <CardHeader className="text-center space-y-4">
-          <div className="mx-auto bg-primary rounded-full p-4 w-fit">
-            <Store className="h-10 w-10 text-primary-foreground" />
+
+          {/* LOGO AQUI */}
+          <div className="mx-auto w-fit">
+            <img
+              src="/favicon.svg"
+              alt="Mercado Gonçalves"
+              className="h-20 w-auto"
+            />
           </div>
+
           <div>
-            <CardTitle className="text-3xl font-bold text-primary">MERCADO GONÇALVES</CardTitle>
+            <CardTitle className="text-3xl font-bold text-primary">
+              MERCADO GONÇALVES
+            </CardTitle>
             <CardDescription className="text-base mt-2">
               Sistema de Gestão de Crédito
             </CardDescription>
           </div>
         </CardHeader>
+
         <CardContent>
           <form onSubmit={handleLogin} className="space-y-4">
             <div className="space-y-2">
@@ -141,6 +153,7 @@ const Auth = () => {
                 <p className="text-sm text-destructive">{errors.email}</p>
               )}
             </div>
+
             <div className="space-y-2">
               <Label htmlFor="password" className="flex items-center gap-2">
                 <Lock className="h-4 w-4" />
@@ -159,17 +172,19 @@ const Auth = () => {
                 <p className="text-sm text-destructive">{errors.password}</p>
               )}
             </div>
+
             <div className="space-y-3 pt-4">
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 className="w-full h-12 text-lg font-semibold"
                 disabled={loading}
               >
                 {loading ? 'Entrando...' : 'Entrar'}
               </Button>
-              <Button 
+
+              <Button
                 type="button"
-                variant="outline" 
+                variant="outline"
                 className="w-full h-12"
                 disabled={loading}
                 onClick={handleSignUp}
